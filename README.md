@@ -1,5 +1,9 @@
 # Ftsautocomplete
 
+To quickly get set up:
+1. Run `npm install`
+2. Run `ng serve`
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
 
 ## Development server
