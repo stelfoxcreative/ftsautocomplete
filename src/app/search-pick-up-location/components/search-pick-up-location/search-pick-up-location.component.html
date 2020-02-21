@@ -1,0 +1,54 @@
+<div id="searchbox">
+  <form class="c-searchbox cb-u-clearfix">
+    <h2>
+      Let’s find your ideal car
+    </h2>
+    <div>
+      <label for="fts-pickupLocation" class="c-fts__label ui-clyde"
+        >Pick-up Location</label
+      >
+      <div class="c-fts-input-container">
+        <input
+          type="text"
+          id="fts-pickupLocation"
+          name="fts-pickupLocation"
+          aria-describedby="fts-pickupLocation-screenReaderInstructions"
+          aria-controls="fts-pickupLocationResultsContainer"
+          autocomplete="off"
+          class="ui-clyde c-fts-input cb-c-input"
+          placeholder="city, airport, station, region, district…"
+          value=""
+          autofocus
+        />
+        <span id="fts-pickupLocationResultsContainer" >
+          <ol>
+            <li *ngFor="let location of searchResults">
+              <div class="pill">
+                {{ locationTypes.get(location.placeType) }}
+              </div>
+              <div class="c-fts-results__location-container">
+                <div class="ui-clyde c-fts-results__location-name">
+                  <span>{{ location.name }}</span>
+                  <ng-container *ngIf="location.iata"> ({{ location.iata }})</ng-container>
+                </div>
+                <div class="ui-tweed c-fts-results__support-text">
+                  <ng-container *ngIf="location.city">{{ location.city }}</ng-container>
+                  <ng-container *ngIf="location.city && location.country">, </ng-container>
+                  <ng-container *ngIf="location.region && location.placeType !== 'A'">{{ location.region }}, </ng-container>
+                  <ng-container *ngIf="location.country">{{ location.country }}</ng-container>
+                </div>
+              </div>
+            </li>
+          </ol>
+        </span>
+        <span
+          id="fts-pickupLocation-screenReaderInstructions"
+          class="cb-u-hidden"
+          >When autocomplete results are available use up and down arrows to
+          review and enter to select. Touch device users, explore by touch or
+          with swipe gestures.;</span
+        >
+      </div>
+    </div>
+  </form>
+</div>
